@@ -1,0 +1,164 @@
+{
+  "selection_split": "validation",
+  "metric": "Precision@3",
+  "candidates": [
+    {
+      "weights": {
+        "semantic": 0.55,
+        "structured": 0.25,
+        "popularity": 0.2
+      },
+      "precision_at_3": 0.6166666666666666
+    },
+    {
+      "weights": {
+        "semantic": 0.5,
+        "structured": 0.3,
+        "popularity": 0.2
+      },
+      "precision_at_3": 0.6
+    },
+    {
+      "weights": {
+        "semantic": 0.6,
+        "structured": 0.2,
+        "popularity": 0.2
+      },
+      "precision_at_3": 0.6
+    },
+    {
+      "weights": {
+        "semantic": 0.5,
+        "structured": 0.25,
+        "popularity": 0.25
+      },
+      "precision_at_3": 0.5833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.5,
+        "structured": 0.35,
+        "popularity": 0.15
+      },
+      "precision_at_3": 0.5833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.55,
+        "structured": 0.2,
+        "popularity": 0.25
+      },
+      "precision_at_3": 0.5833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.6,
+        "structured": 0.15,
+        "popularity": 0.25
+      },
+      "precision_at_3": 0.5833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.65,
+        "structured": 0.15,
+        "popularity": 0.2
+      },
+      "precision_at_3": 0.5833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.55,
+        "structured": 0.3,
+        "popularity": 0.15
+      },
+      "precision_at_3": 0.5666666666666667
+    },
+    {
+      "weights": {
+        "semantic": 0.65,
+        "structured": 0.2,
+        "popularity": 0.15
+      },
+      "precision_at_3": 0.55
+    },
+    {
+      "weights": {
+        "semantic": 0.7,
+        "structured": 0.15,
+        "popularity": 0.15
+      },
+      "precision_at_3": 0.55
+    },
+    {
+      "weights": {
+        "semantic": 0.6,
+        "structured": 0.25,
+        "popularity": 0.15
+      },
+      "precision_at_3": 0.5333333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.55,
+        "structured": 0.35,
+        "popularity": 0.1
+      },
+      "precision_at_3": 0.5166666666666666
+    },
+    {
+      "weights": {
+        "semantic": 0.6,
+        "structured": 0.3,
+        "popularity": 0.1
+      },
+      "precision_at_3": 0.5166666666666666
+    },
+    {
+      "weights": {
+        "semantic": 0.65,
+        "structured": 0.25,
+        "popularity": 0.1
+      },
+      "precision_at_3": 0.5166666666666666
+    },
+    {
+      "weights": {
+        "semantic": 0.7,
+        "structured": 0.2,
+        "popularity": 0.1
+      },
+      "precision_at_3": 0.5166666666666666
+    },
+    {
+      "weights": {
+        "semantic": 0.6,
+        "structured": 0.35,
+        "popularity": 0.05
+      },
+      "precision_at_3": 0.4833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.65,
+        "structured": 0.3,
+        "popularity": 0.05
+      },
+      "precision_at_3": 0.4833333333333333
+    },
+    {
+      "weights": {
+        "semantic": 0.7,
+        "structured": 0.25,
+        "popularity": 0.05
+      },
+      "precision_at_3": 0.4833333333333333
+    }
+  ],
+  "selected_weights": {
+    "semantic": 0.55,
+    "structured": 0.25,
+    "popularity": 0.2
+  },
+  "selected_precision_at_3": 0.6166666666666666
+}

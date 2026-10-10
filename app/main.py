@@ -38,13 +38,39 @@ def get_service() -> RecommendationService:
 
 @app.get("/api/health")
 def health() -> dict[str, object]:
-    current = get_service()
+    if service is None:
+        return {
+            "status": "loading",
+            "service": "food-ai-recommender",
+            "model_status": "not_initialized",
+        }
+    current = service
     return {
         "status": "ok",
         "service": "food-ai-recommender",
         "model": "Recomendador semántico con embeddings multilingües",
         "embedding_backend": current.index.backend,
         "menu_items": len(current.menu),
+        "model_status": "ready",
+        "ranking_weights": current.get_ranking_weights(),
+    }
+
+
+@app.get("/api/ready")
+def ready() -> dict[str, object]:
+    try:
+        current = get_service()
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="El modelo todavía no está disponible. Revisa los logs del backend.",
+        ) from exc
+    return {
+        "status": "ready",
+        "service": "food-ai-recommender",
+        "embedding_backend": current.index.backend,
+        "menu_items": len(current.menu),
+        "ranking_weights": current.get_ranking_weights(),
     }
 
 

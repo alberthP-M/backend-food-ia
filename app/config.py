@@ -12,3 +12,9 @@ MODEL_NAME = os.getenv(
     "MODEL_NAME",
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
 )
+
+DEFAULT_RANKING_WEIGHTS = {
+    "semantic": 0.55,
+    "structured": 0.25,
+    "popularity": 0.20,
+}

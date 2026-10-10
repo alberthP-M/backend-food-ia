@@ -23,3 +23,12 @@ def test_parser_understands_allergic_language() -> None:
     assert "peanuts" in intent.excluded_allergens
     assert "fish" in intent.excluded_allergens
     assert intent.protein is None
+
+
+def test_parser_understands_natural_negative_phrases_and_price_range() -> None:
+    intent = parse_query("No contiene pescado ni harina y cuesta entre Bs 35 y Bs 45")
+
+    assert "fish" in intent.excluded_allergens
+    assert "gluten" in intent.excluded_allergens
+    assert intent.min_price == 35
+    assert intent.max_price == 45

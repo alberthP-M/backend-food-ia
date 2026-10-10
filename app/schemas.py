@@ -38,6 +38,8 @@ class RecommendResponse(BaseModel):
     parsed_constraints: dict[str, Any]
     model: str
     backend: str
+    ranking_weights: dict[str, float]
     recommendations: list[Recommendation]
     alternatives: list[Recommendation] = Field(default_factory=list)
     message: str | None = None
+    safety_notice: str

@@ -10,7 +10,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from .catalog import load_menu
-from .config import ARTIFACT_DIR, DATA_DIR, MODEL_BACKEND, MODEL_NAME
+from .config import (
+    ARTIFACT_DIR,
+    DATA_DIR,
+    DEFAULT_RANKING_WEIGHTS,
+    MODEL_BACKEND,
+    MODEL_NAME,
+)
 from .parser import QueryIntent, normalize, parse_query
 
 
@@ -139,6 +145,18 @@ class RecommendationService:
         self.data_dir = data_dir
         self.menu = load_menu(data_dir / "menu.csv")
         self.index = EmbeddingIndex(self.menu, artifact_dir=artifact_dir, backend=backend)
+
+    @staticmethod
+    def _normalize_weights(weights: dict[str, float] | None = None) -> dict[str, float]:
+        selected = dict(DEFAULT_RANKING_WEIGHTS if weights is None else weights)
+        if set(selected) != {"semantic", "structured", "popularity"}:
+            raise ValueError("Los pesos deben incluir semantic, structured y popularity.")
+        if any(value < 0 for value in selected.values()):
+            raise ValueError("Los pesos no pueden ser negativos.")
+        total = sum(selected.values())
+        if total <= 0:
+            raise ValueError("La suma de los pesos debe ser mayor que cero.")
+        return {key: round(value / total, 4) for key, value in selected.items()}
 
     @staticmethod
     def _diet_compatible(item: dict[str, object], diets: list[str]) -> bool:
@@ -292,8 +310,18 @@ class RecommendationService:
         )
         return [self._to_recommendation(item, 0.0, intent) for item in candidates[:top_k]]
 
-    def recommend(self, query: str, top_k: int = 3) -> dict[str, object]:
+    def recommend(
+        self,
+        query: str,
+        top_k: int = 3,
+        weights: dict[str, float] | None = None,
+    ) -> dict[str, object]:
         intent = parse_query(query)
+        ranking_weights = self._normalize_weights(weights)
+        safety_notice = (
+            "Verifica ingredientes y contaminación cruzada con el personal. "
+            "Un alérgeno no registrado no garantiza que el plato sea seguro."
+        )
         candidates = self.filter_candidates(intent)
         fallback_used = False
         if not candidates and not self._has_hard_conflict(intent):
@@ -307,9 +335,11 @@ class RecommendationService:
                 "parsed_constraints": intent.as_dict(),
                 "model": "Recomendador semántico con embeddings multilingües",
                 "backend": self.index.backend,
+                "ranking_weights": ranking_weights,
                 "recommendations": [],
                 "alternatives": [],
                 "message": "No encontramos platos disponibles compatibles con tus restricciones de seguridad.",
+                "safety_notice": safety_notice,
             }
 
         candidate_indexes = [self.menu.index(item) for item in candidates]
@@ -320,7 +350,11 @@ class RecommendationService:
         structured = np.array(
             [self._structured_match_score(item, intent) for item in candidates]
         )
-        scores = 0.65 * similarities + 0.25 * structured + 0.10 * popularity
+        scores = (
+            ranking_weights["semantic"] * similarities
+            + ranking_weights["structured"] * structured
+            + ranking_weights["popularity"] * popularity
+        )
         order = np.argsort(-scores)[:top_k]
         recommendations = [
             self._to_recommendation(candidates[index], float(scores[index]), intent)
@@ -337,10 +371,15 @@ class RecommendationService:
             "parsed_constraints": intent.as_dict(),
             "model": "Recomendador semántico con embeddings multilingües",
             "backend": self.index.backend,
+            "ranking_weights": ranking_weights,
             "recommendations": recommendations,
             "alternatives": [],
             "message": message,
+            "safety_notice": safety_notice,
         }
+
+    def get_ranking_weights(self) -> dict[str, float]:
+        return self._normalize_weights()
 
     def get_menu(self) -> list[dict[str, object]]:
         return [self._public_item(item) for item in self.menu]

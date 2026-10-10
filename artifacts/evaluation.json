@@ -1,158 +1,743 @@
 {
   "metric": "Precision@3",
-  "query_count": 12,
+  "split": "test",
+  "query_count": 55,
   "model_backend": "fastembed",
-  "model_precision_at_3": 0.4444444444444444,
-  "baseline_precision_at_3": 0.5555555555555555,
+  "ranking_weights": {
+    "semantic": 0.55,
+    "structured": 0.25,
+    "popularity": 0.2
+  },
+  "model_precision_at_3": 0.4727272727272727,
+  "baseline_precision_at_3": 0.6121212121212121,
   "queries": [
     {
-      "id": "q01",
-      "query": "vegetariano sin lactosa poco picante menos de Bs 50",
+      "id": "q041",
+      "group": "egg_dairy_free",
+      "query": "opción sin huevo ni lácteos",
       "model_ids": [
-        "sopa-lentejas",
-        "pasta-vegetal",
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "lomo-salteado"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "ensalada-mediterranea"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q042",
+      "group": "egg_dairy_free",
+      "query": "quiero algo que no tenga huevo ni leche",
+      "model_ids": [
+        "arroz-pollo",
+        "pollo-quinoa",
+        "bowl-quinoa"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
+    },
+    {
+      "id": "q043",
+      "group": "egg_dairy_free",
+      "query": "comida libre de huevo y queso",
+      "model_ids": [
+        "papas-horno",
+        "pasta-pollo",
+        "lasagna-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q044",
+      "group": "egg_dairy_free",
+      "query": "plato sin huevo, crema ni mantequilla",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "lomo-salteado"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "ensalada-mediterranea"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q045",
+      "group": "egg_dairy_free",
+      "query": "qué puedo comer si evito huevo y lácteos",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "lomo-salteado"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "ensalada-mediterranea"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q046",
+      "group": "vegetarian_budget",
+      "query": "algo vegetariano con poco presupuesto",
+      "model_ids": [
+        "locro-vegetal",
+        "guiso-lentejas",
+        "ensalada-mediterranea"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "ensalada-tropical",
+        "guiso-lentejas"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "tie"
+    },
+    {
+      "id": "q047",
+      "group": "vegetarian_budget",
+      "query": "comida sin carne que sea barata",
+      "model_ids": [
+        "papas-horno",
+        "lomo-salteado",
+        "arroz-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q048",
+      "group": "vegetarian_budget",
+      "query": "una opción vegetariana económica",
+      "model_ids": [
+        "locro-vegetal",
+        "guiso-lentejas",
         "burger-vegana"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pizza-margarita"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
+    },
+    {
+      "id": "q049",
+      "group": "vegetarian_budget",
+      "query": "qué plato vegetariano cuesta menos",
+      "model_ids": [
+        "locro-vegetal",
+        "pasta-vegetal",
+        "ensalada-mediterranea"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pizza-margarita"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
+    },
+    {
+      "id": "q050",
+      "group": "vegetarian_budget",
+      "query": "quiero comer vegetariano sin gastar mucho",
+      "model_ids": [
+        "locro-vegetal",
+        "pasta-vegetal",
+        "ensalada-mediterranea"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pizza-margarita"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
+    },
+    {
+      "id": "q051",
+      "group": "gluten_soy_free",
+      "query": "sin gluten y sin soya",
+      "model_ids": [
+        "arroz-pollo",
+        "guiso-lentejas",
+        "locro-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q052",
+      "group": "gluten_soy_free",
+      "query": "quiero evitar trigo y salsa de soya",
+      "model_ids": [
+        "arroz-pollo",
+        "guiso-lentejas",
+        "pollo-picante"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q053",
+      "group": "gluten_soy_free",
+      "query": "opción libre de gluten y soja",
+      "model_ids": [
+        "guiso-lentejas",
+        "arroz-pollo",
+        "ensalada-tropical"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q054",
+      "group": "gluten_soy_free",
+      "query": "comida sin harina ni soya",
+      "model_ids": [
+        "ensalada-tropical",
+        "guiso-lentejas",
+        "arroz-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q055",
+      "group": "gluten_soy_free",
+      "query": "qué puedo pedir si no consumo gluten ni soja",
+      "model_ids": [
+        "guiso-lentejas",
+        "arroz-pollo",
+        "locro-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q056",
+      "group": "vegan_protein",
+      "query": "quiero algo vegano con proteína",
+      "model_ids": [
+        "guiso-lentejas",
+        "curry-lentejas",
+        "pasta-vegetal"
       ],
       "baseline_ids": [
         "bowl-quinoa",
         "ensalada-mediterranea",
         "pasta-vegetal"
       ],
-      "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 1.0
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "model_better"
     },
     {
-      "id": "q02",
-      "query": "sin gluten con pollo no picante menor a Bs 50",
+      "id": "q057",
+      "group": "vegan_protein",
+      "query": "comida vegetal rica en proteína",
       "model_ids": [
-        "arroz-pollo",
-        "pollo-quinoa"
+        "lomo-salteado",
+        "papas-horno",
+        "locro-vegetal"
       ],
       "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q058",
+      "group": "vegan_protein",
+      "query": "una opción vegana proteica",
+      "model_ids": [
+        "guiso-lentejas",
+        "curry-lentejas",
+        "pasta-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "model_better"
+    },
+    {
+      "id": "q059",
+      "group": "vegan_protein",
+      "query": "qué plato vegano me aporta más proteína",
+      "model_ids": [
+        "guiso-lentejas",
+        "pasta-vegetal",
+        "curry-lentejas"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "model_better"
+    },
+    {
+      "id": "q060",
+      "group": "vegan_protein",
+      "query": "busco comida sin carne pero con buena proteína",
+      "model_ids": [
+        "arroz-pollo",
+        "lomo-salteado",
+        "papas-horno"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q061",
+      "group": "peanut_allergy",
+      "query": "soy alérgico al maní y quiero algo vegano",
+      "model_ids": [
+        "pasta-vegetal",
+        "ensalada-mediterranea",
+        "guiso-lentejas"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q062",
+      "group": "peanut_allergy",
+      "query": "tengo alergia al cacahuate, recomiéndame algo vegetal",
+      "model_ids": [
+        "arroz-pollo",
+        "pollo-quinoa",
+        "pasta-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
         "pollo-quinoa",
         "arroz-pollo"
       ],
-      "model_precision_at_3": 0.6666666666666666,
-      "baseline_precision_at_3": 0.6666666666666666
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
     },
     {
-      "id": "q03",
-      "query": "vegano sin mani y con pocas calorias",
+      "id": "q063",
+      "group": "peanut_allergy",
+      "query": "evito los frutos de maní y prefiero comida vegana",
       "model_ids": [
-        "sopa-lentejas",
+        "guiso-lentejas",
+        "pasta-vegetal",
         "ensalada-mediterranea"
       ],
       "baseline_ids": [
+        "bowl-quinoa",
         "ensalada-mediterranea",
-        "sopa-lentejas"
+        "pasta-vegetal"
       ],
       "model_precision_at_3": 0.6666666666666666,
-      "baseline_precision_at_3": 0.6666666666666666
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
     },
     {
-      "id": "q04",
-      "query": "pescado sin lactosa para el almuerzo",
+      "id": "q064",
+      "group": "peanut_allergy",
+      "query": "no puedo comer maní, busco un plato sin carne",
       "model_ids": [
-        "pescado-andino"
+        "lomo-salteado",
+        "arroz-pollo",
+        "pasta-vegetal"
       ],
       "baseline_ids": [
-        "pescado-andino"
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
       ],
       "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 0.3333333333333333
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "tie"
     },
     {
-      "id": "q05",
-      "query": "plato con carne alto en proteina",
+      "id": "q065",
+      "group": "peanut_allergy",
+      "query": "soy alérgica a los cacahuates, qué opción vegana hay",
       "model_ids": [
-        "lomo-salteado"
+        "pasta-vegetal",
+        "guiso-lentejas",
+        "ensalada-mediterranea"
       ],
       "baseline_ids": [
-        "lomo-salteado"
-      ],
-      "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 0.3333333333333333
-    },
-    {
-      "id": "q06",
-      "query": "postre sin lactosa",
-      "model_ids": [
-        "pudding-chia"
-      ],
-      "baseline_ids": [
-        "pudding-chia"
-      ],
-      "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 0.3333333333333333
-    },
-    {
-      "id": "q07",
-      "query": "algo liviano y barato para el almuerzo",
-      "model_ids": [
+        "bowl-quinoa",
         "ensalada-mediterranea",
-        "sopa-lentejas"
-      ],
-      "baseline_ids": [
-        "ensalada-mediterranea",
-        "sopa-lentejas"
+        "pasta-vegetal"
       ],
       "model_precision_at_3": 0.6666666666666666,
-      "baseline_precision_at_3": 0.6666666666666666
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
     },
     {
-      "id": "q08",
-      "query": "pollo poco picante",
+      "id": "q066",
+      "group": "category_bowls",
+      "query": "quiero un bowl saludable",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "bowl-vegetales"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q067",
+      "group": "category_bowls",
+      "query": "recomiéndame un bowl con verduras",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-vegetales",
+        "bowl-cerdo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q068",
+      "group": "category_bowls",
+      "query": "busco una comida tipo bowl",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "bowl-pavo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q069",
+      "group": "category_bowls",
+      "query": "qué bowls tienen disponibles",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "bowl-pavo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q070",
+      "group": "category_bowls",
+      "query": "un bowl para almorzar, por favor",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "bowl-pavo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q071",
+      "group": "category_pasta",
+      "query": "quiero pasta",
+      "model_ids": [
+        "pasta-vegetal",
+        "lasagna-vegetal",
+        "pasta-pollo"
+      ],
+      "baseline_ids": [
+        "pasta-vegetal",
+        "pasta-pollo",
+        "noodles-tofu"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q072",
+      "group": "category_pasta",
+      "query": "recomiéndame un plato de pasta",
+      "model_ids": [
+        "pasta-vegetal",
+        "lasagna-vegetal",
+        "pasta-pollo"
+      ],
+      "baseline_ids": [
+        "pasta-vegetal",
+        "pasta-pollo",
+        "noodles-tofu"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q073",
+      "group": "category_pasta",
+      "query": "busco fideos con verduras",
+      "model_ids": [
+        "noodles-tofu",
+        "pasta-vegetal",
+        "pasta-garbanzos"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "model_better"
+    },
+    {
+      "id": "q074",
+      "group": "category_pasta",
+      "query": "qué opciones de pastas tienen",
+      "model_ids": [
+        "lasagna-vegetal",
+        "pasta-pollo",
+        "pasta-vegetal"
+      ],
+      "baseline_ids": [
+        "pasta-vegetal",
+        "pasta-pollo",
+        "noodles-tofu"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q075",
+      "group": "category_pasta",
+      "query": "una pasta para el almuerzo",
       "model_ids": [
         "pasta-pollo",
-        "arroz-pollo",
-        "pollo-quinoa"
+        "pasta-vegetal",
+        "lasagna-vegetal"
       ],
       "baseline_ids": [
-        "pollo-quinoa",
-        "arroz-pollo",
-        "pollo-teriyaki"
+        "pasta-vegetal",
+        "pasta-pollo",
+        "noodles-tofu"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q076",
+      "group": "low_calorie_drink",
+      "query": "bebida baja en calorías",
+      "model_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "cafe-avena"
+      ],
+      "baseline_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "cafe-avena"
       ],
       "model_precision_at_3": 0.6666666666666666,
-      "baseline_precision_at_3": 1.0
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "tie"
     },
     {
-      "id": "q09",
-      "query": "opcion sin huevo ni lacteos",
+      "id": "q077",
+      "group": "low_calorie_drink",
+      "query": "quiero algo para tomar que sea liviano",
       "model_ids": [
-        "pollo-quinoa",
-        "bowl-quinoa",
-        "pollo-picante"
-      ],
-      "baseline_ids": [
-        "bowl-quinoa",
-        "pollo-quinoa",
-        "ensalada-mediterranea"
-      ],
-      "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 0.6666666666666666
-    },
-    {
-      "id": "q10",
-      "query": "algo vegetariano con poco presupuesto",
-      "model_ids": [
-        "sopa-lentejas",
         "ensalada-mediterranea",
-        "wrap-vegetal"
-      ],
-      "baseline_ids": [
-        "ensalada-mediterranea",
-        "wrap-vegetal",
+        "bowl-vegetales",
         "sopa-lentejas"
       ],
-      "model_precision_at_3": 0.3333333333333333,
-      "baseline_precision_at_3": 0.3333333333333333
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "ensalada-tropical",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
     },
     {
-      "id": "q11",
-      "query": "sin gluten y sin soya",
+      "id": "q078",
+      "group": "low_calorie_drink",
+      "query": "un jugo saludable sin leche",
+      "model_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "cafe-avena"
+      ],
+      "baseline_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "cafe-avena"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "tie"
+    },
+    {
+      "id": "q079",
+      "group": "low_calorie_drink",
+      "query": "qué bebida tiene pocas calorías",
+      "model_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "te-jengibre"
+      ],
+      "baseline_ids": [
+        "limonada-natural",
+        "jugo-verde",
+        "smoothie-mango"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q080",
+      "group": "low_calorie_drink",
+      "query": "algo fresco, natural y ligero",
+      "model_ids": [
+        "ensalada-mediterranea",
+        "ensalada-tropical",
+        "bowl-vegetales"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "ensalada-tropical",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q081",
+      "group": "no_fish_gluten_free",
+      "query": "sin pescado y sin gluten",
       "model_ids": [
         "arroz-pollo",
-        "sopa-lentejas",
+        "locro-vegetal",
         "tacos-pollo"
       ],
       "baseline_ids": [
@@ -160,24 +745,261 @@
         "pollo-quinoa",
         "arroz-pollo"
       ],
-      "model_precision_at_3": 0.0,
-      "baseline_precision_at_3": 0.3333333333333333
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
     },
     {
-      "id": "q12",
-      "query": "quiero algo vegano con proteina",
+      "id": "q082",
+      "group": "no_fish_gluten_free",
+      "query": "no puedo comer pescado, quiero algo apto para celíacos",
       "model_ids": [
-        "curry-lentejas",
-        "sopa-lentejas",
+        "arroz-pollo",
+        "pollo-quinoa",
+        "bowl-quinoa"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q083",
+      "group": "no_fish_gluten_free",
+      "query": "evito pescado y trigo",
+      "model_ids": [
+        "arroz-pollo",
+        "lomo-salteado",
         "pasta-vegetal"
       ],
       "baseline_ids": [
         "bowl-quinoa",
-        "ensalada-mediterranea",
-        "pasta-vegetal"
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q084",
+      "group": "no_fish_gluten_free",
+      "query": "una opción sin pescado ni gluten",
+      "model_ids": [
+        "arroz-pollo",
+        "locro-vegetal",
+        "tacos-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
       ],
       "model_precision_at_3": 0.6666666666666666,
-      "baseline_precision_at_3": 0.3333333333333333
+      "baseline_precision_at_3": 1.0,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q085",
+      "group": "no_fish_gluten_free",
+      "query": "qué plato no contiene pescado ni harina",
+      "model_ids": [
+        "pollo-quinoa",
+        "arroz-pollo",
+        "bowl-quinoa"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 1.0,
+      "baseline_precision_at_3": 1.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q091",
+      "group": "hard_spicy",
+      "query": "quiero algo muy picante con pollo",
+      "model_ids": [
+        "arroz-pollo",
+        "pollo-quinoa",
+        "pasta-pollo"
+      ],
+      "baseline_ids": [
+        "pollo-quinoa",
+        "arroz-pollo",
+        "pollo-teriyaki"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q092",
+      "group": "hard_spicy",
+      "query": "recomiéndame comida con bastante ají",
+      "model_ids": [
+        "arroz-pollo",
+        "papas-horno",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q093",
+      "group": "hard_spicy",
+      "query": "busco un plato picante y proteico",
+      "model_ids": [
+        "lomo-salteado",
+        "arroz-pollo",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q094",
+      "group": "hard_spicy",
+      "query": "algo con sabor fuerte y pollo",
+      "model_ids": [
+        "arroz-pollo",
+        "pasta-pollo",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "pollo-quinoa",
+        "arroz-pollo",
+        "pollo-teriyaki"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q095",
+      "group": "hard_spicy",
+      "query": "quiero una opción de pollo bien picante",
+      "model_ids": [
+        "arroz-pollo",
+        "pasta-pollo",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "pollo-quinoa",
+        "arroz-pollo",
+        "pollo-teriyaki"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.0,
+      "outcome": "tie"
+    },
+    {
+      "id": "q096",
+      "group": "price_range",
+      "query": "plato entre Bs 35 y Bs 45",
+      "model_ids": [
+        "bowl-quinoa",
+        "guiso-lentejas",
+        "pasta-champinones"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "arroz-pollo",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q097",
+      "group": "price_range",
+      "query": "quiero algo que cueste desde 35 hasta 45 bolivianos",
+      "model_ids": [
+        "bowl-vegetales",
+        "ensalada-caprese",
+        "ensalada-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-vegetales",
+        "ensalada-caprese",
+        "ensalada-quinoa"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q098",
+      "group": "price_range",
+      "query": "comida con presupuesto mínimo de Bs 35 y máximo de 45",
+      "model_ids": [
+        "papas-horno",
+        "lasagna-vegetal",
+        "lomo-salteado"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q099",
+      "group": "price_range",
+      "query": "qué puedo pedir por 40 bolivianos aproximadamente",
+      "model_ids": [
+        "ensalada-tropical",
+        "ensalada-mediterranea",
+        "merluza-verde"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "ensalada-tropical",
+        "bowl-vegetales"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
+    },
+    {
+      "id": "q100",
+      "group": "price_range",
+      "query": "una opción de precio medio, no más de 45",
+      "model_ids": [
+        "pollo-quinoa",
+        "papas-horno",
+        "arroz-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "limonada-natural"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333,
+      "outcome": "baseline_better"
     }
   ]
 }

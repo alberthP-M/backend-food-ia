@@ -20,13 +20,23 @@ def load_queries(path: Path) -> list[dict[str, Any]]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
-def evaluate(service: RecommendationService, path: Path) -> dict[str, Any]:
+def evaluate(
+    service: RecommendationService,
+    path: Path,
+    split: str | None = "test",
+    weights: dict[str, float] | None = None,
+) -> dict[str, Any]:
     queries = load_queries(path)
+    if split is not None:
+        queries = [
+            row for row in queries
+            if row.get("split") == split and row.get("scored", True)
+        ]
     model_scores: list[float] = []
     baseline_scores: list[float] = []
     rows: list[dict[str, Any]] = []
     for row in queries:
-        model = service.recommend(row["query"], top_k=3)
+        model = service.recommend(row["query"], top_k=3, weights=weights)
         baseline = service.baseline(row["query"], top_k=3)
         model_ids = [item["id"] for item in model["recommendations"]]
         baseline_ids = [item["id"] for item in baseline]
@@ -37,17 +47,31 @@ def evaluate(service: RecommendationService, path: Path) -> dict[str, Any]:
         rows.append(
             {
                 "id": row["id"],
+                "group": row.get("group"),
                 "query": row["query"],
                 "model_ids": model_ids,
                 "baseline_ids": baseline_ids,
                 "model_precision_at_3": model_score,
                 "baseline_precision_at_3": baseline_score,
+                "outcome": (
+                    "model_better"
+                    if model_score > baseline_score
+                    else "baseline_better"
+                    if baseline_score > model_score
+                    else "no_safe_match"
+                    if not model_ids
+                    else "tie"
+                ),
             }
         )
+    if not queries:
+        raise ValueError(f"No se encontraron consultas para el split '{split}'.")
     return {
         "metric": "Precision@3",
+        "split": split,
         "query_count": len(queries),
         "model_backend": service.index.backend,
+        "ranking_weights": service._normalize_weights(weights),
         "model_precision_at_3": sum(model_scores) / len(model_scores),
         "baseline_precision_at_3": sum(baseline_scores) / len(baseline_scores),
         "queries": rows,

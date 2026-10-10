@@ -13,10 +13,9 @@ from app.recommendation import RecommendationService
 
 if __name__ == "__main__":
     service = RecommendationService()
-    results = evaluate(service, DATA_DIR / "evaluation_queries.jsonl")
+    results = evaluate(service, DATA_DIR / "evaluation_queries.jsonl", split="test")
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     (ARTIFACT_DIR / "evaluation.json").write_text(
         json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(json.dumps(results, ensure_ascii=False, indent=2))
-

@@ -382,36 +382,389 @@ MENU = [
     },
 ]
 
-EVALUATION_QUERIES = [
-    {"id": "q01", "query": "vegetariano sin lactosa poco picante menos de Bs 50", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal"]},
-    {"id": "q02", "query": "sin gluten con pollo no picante menor a Bs 50", "relevant_ids": ["pollo-quinoa", "arroz-pollo", "tacos-pollo"]},
-    {"id": "q03", "query": "vegano sin mani y con pocas calorias", "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde"]},
-    {"id": "q04", "query": "pescado sin lactosa para el almuerzo", "relevant_ids": ["pescado-andino", "salmon-limon"]},
-    {"id": "q05", "query": "plato con carne alto en proteina", "relevant_ids": ["lomo-salteado"]},
-    {"id": "q06", "query": "postre sin lactosa", "relevant_ids": ["pudding-chia"]},
-    {"id": "q07", "query": "algo liviano y barato para el almuerzo", "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde"]},
-    {"id": "q08", "query": "pollo poco picante", "relevant_ids": ["pollo-quinoa", "arroz-pollo", "pollo-teriyaki"]},
-    {"id": "q09", "query": "opcion sin huevo ni lacteos", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal"]},
-    {"id": "q10", "query": "algo vegetariano con poco presupuesto", "relevant_ids": ["sopa-lentejas", "jugo-verde", "limonada-natural"]},
-    {"id": "q11", "query": "sin gluten y sin soya", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pescado-andino"]},
-    {"id": "q12", "query": "quiero algo vegano con proteina", "relevant_ids": ["bowl-quinoa", "curry-lentejas", "sopa-lentejas"]},
+EXTRA_SPECS = [
+    ("bowl-pavo", "Bowl de pavo y arroz", "Pavo a la plancha con arroz integral, verduras y limon.", "bowls", 49, "gluten_free;dairy_free;high_protein", "none", "pavo;arroz integral;brocoli;zanahoria;limon", "low", 15, 520, 39),
+    ("bowl-camarones", "Bowl de camarones y quinoa", "Camarones, quinoa, palta y verduras frescas con limon.", "bowls", 57, "gluten_free;dairy_free;high_protein", "shellfish", "camarones;quinoa;palta;pepino;limon", "low", 17, 470, 32),
+    ("bowl-garbanzos", "Bowl de garbanzos mediterraneo", "Garbanzos, arroz, tomate, pepino y aceitunas con hierbas.", "bowls", 39, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "garbanzos;arroz;tomate;pepino;aceitunas", "low", 13, 440, 17),
+    ("bowl-cerdo", "Bowl de cerdo y vegetales", "Cerdo grillado, arroz, repollo y verduras con salsa de la casa.", "bowls", 51, "dairy_free;high_protein", "soy", "cerdo;arroz;repollo;zanahoria;salsa de soya", "medium", 18, 610, 35),
+    ("bowl-tempeh", "Bowl de tempeh y arroz", "Tempeh, arroz integral, brócoli y vegetales salteados.", "bowls", 46, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "soy", "tempeh;arroz integral;brocoli;zanahoria;sesamo", "low", 16, 500, 26),
+    ("bowl-vegetales", "Bowl de vegetales asados", "Vegetales asados, papa dulce, garbanzos y salsa de limon.", "bowls", 37, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "zapallo;camote;garbanzos;pimiento;limon", "low", 14, 390, 14),
+    ("bowl-lentejas", "Bowl de lentejas y palta", "Lentejas, arroz, palta, tomate y hojas verdes.", "bowls", 38, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "lentejas;arroz;palta;tomate;lechuga", "low", 13, 450, 21),
+    ("bowl-salmon", "Bowl de salmon teriyaki", "Salmon, arroz, pepino y verduras con salsa teriyaki.", "bowls", 64, "dairy_free;high_protein", "fish;soy;gluten", "salmon;arroz;pepino;salsa de soya;zanahoria", "medium", 20, 580, 41),
+    ("ensalada-pollo", "Ensalada de pollo grillado", "Pollo grillado, hojas verdes, tomate, pepino y palta.", "ensaladas", 43, "gluten_free;dairy_free;high_protein;low_calorie", "none", "pollo;lechuga;tomate;pepino;palta", "low", 10, 360, 30),
+    ("ensalada-atun", "Ensalada de atun y papa", "Atun, papa, huevo, hojas verdes y aceitunas.", "ensaladas", 41, "gluten_free;dairy_free;high_protein", "fish;egg", "atun;papa;huevo;lechuga;aceitunas", "low", 11, 410, 28),
+    ("ensalada-quinoa", "Ensalada de quinoa y verduras", "Quinoa, tomate, pepino, zanahoria y semillas de girasol.", "ensaladas", 36, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "quinoa;tomate;pepino;zanahoria;semillas de girasol", "low", 9, 310, 12),
+    ("ensalada-falafel", "Ensalada de falafel", "Falafel de garbanzo, hojas verdes, tomate y tahini.", "ensaladas", 34, "vegan;vegetarian;dairy_free", "sesame", "garbanzos;lechuga;tomate;tahini;pepino", "low", 12, 390, 15),
+    ("ensalada-manzana", "Ensalada de manzana y nuez", "Manzana, hojas verdes, nuez, pasas y vinagreta.", "ensaladas", 33, "vegetarian;gluten_free;low_calorie", "nuts", "manzana;lechuga;nuez;pasas;vinagreta", "low", 8, 300, 7),
+    ("ensalada-caprese", "Ensalada caprese", "Tomate, mozzarella, albahaca y aceite de oliva.", "ensaladas", 35, "vegetarian;gluten_free;low_calorie", "milk", "tomate;mozzarella;albahaca;aceite de oliva", "low", 7, 290, 12),
+    ("ensalada-tropical", "Ensalada tropical", "Hojas verdes, mango, pepino, palta y semillas.", "ensaladas", 31, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "lechuga;mango;pepino;palta;semillas", "low", 8, 270, 6),
+    ("pollo-hierbas", "Pollo a las hierbas", "Pollo al horno con papa, zanahoria y hierbas frescas.", "platos fuertes", 47, "gluten_free;dairy_free;high_protein", "none", "pollo;papa;zanahoria;romero;tomillo", "low", 19, 560, 38),
+    ("pollo-citricos", "Pollo a los citricos", "Pollo grillado con arroz, naranja, limon y ensalada.", "platos fuertes", 49, "gluten_free;dairy_free;high_protein", "none", "pollo;arroz;naranja;limon;lechuga", "low", 17, 510, 36),
+    ("pollo-aji", "Pollo al aji amarillo", "Pollo salteado con arroz y salsa suave de aji amarillo.", "platos fuertes", 48, "gluten_free;dairy_free;high_protein", "none", "pollo;arroz;aji amarillo;cebolla;tomate", "medium", 17, 570, 37),
+    ("pavo-mediterraneo", "Pavo mediterraneo", "Pavo, papa asada, tomate, aceitunas y oregano.", "platos fuertes", 53, "gluten_free;dairy_free;high_protein", "none", "pavo;papa;tomate;aceitunas;oregano", "low", 19, 540, 40),
+    ("carne-champinones", "Carne con champiñones", "Carne de res, champiñones, arroz y verduras salteadas.", "platos fuertes", 60, "dairy_free;high_protein", "soy", "carne;champinones;arroz;cebolla;salsa de soya", "medium", 21, 690, 44),
+    ("carne-pimienta", "Carne a la pimienta", "Carne de res con papa, ensalada y salsa de pimienta.", "platos fuertes", 59, "gluten_free;dairy_free;high_protein", "none", "carne;papa;lechuga;pimienta;tomate", "medium", 20, 680, 43),
+    ("cerdo-miel", "Cerdo con miel y mostaza", "Cerdo al horno con camote y verduras glaseadas.", "platos fuertes", 55, "gluten_free;dairy_free;high_protein", "none", "cerdo;camote;mostaza;miel;zanahoria", "low", 22, 630, 39),
+    ("pescado-hierbas", "Pescado con hierbas", "Filete de pescado con papa, ensalada y hierbas frescas.", "pescados", 54, "gluten_free;dairy_free;high_protein;low_calorie", "fish", "pescado;papa;lechuga;romero;limon", "low", 18, 420, 37),
+    ("merluza-verde", "Merluza con salsa verde", "Merluza al horno con arroz, perejil y ensalada.", "pescados", 52, "gluten_free;dairy_free;high_protein;low_calorie", "fish", "merluza;arroz;perejil;limon;pepino", "low", 18, 400, 35),
+    ("camarones-ajo", "Camarones al ajo", "Camarones salteados con arroz y verduras frescas.", "mariscos", 62, "gluten_free;dairy_free;high_protein", "shellfish", "camarones;arroz;ajo;pimiento;limon", "medium", 16, 520, 34),
+    ("tofu-curry", "Tofu al curry", "Tofu, arroz, leche de coco y verduras con curry suave.", "vegetarianos", 44, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "soy", "tofu;arroz;leche de coco;zanahoria;curry", "medium", 17, 500, 24),
+    ("garbanzos-guiso", "Guiso de garbanzos", "Garbanzos, papa, tomate y verduras en salsa casera.", "vegetarianos", 34, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "garbanzos;papa;tomate;zanahoria;cebolla", "medium", 16, 460, 19),
+    ("pasta-pesto", "Pasta al pesto", "Pasta de trigo con pesto de albahaca, nuez y parmesano.", "pastas", 45, "vegetarian", "gluten;milk;nuts", "pasta de trigo;albahaca;nuez;parmesano;ajo", "low", 15, 610, 20),
+    ("pasta-champinones", "Pasta con champiñones", "Pasta de trigo con champiñones, crema y perejil.", "pastas", 43, "vegetarian", "gluten;milk", "pasta de trigo;champinones;crema;perejil;ajo", "low", 16, 590, 18),
+    ("pasta-espinaca", "Pasta de espinaca", "Pasta con espinaca, tomate seco y aceite de oliva.", "pastas", 40, "vegan;vegetarian;dairy_free", "gluten", "pasta de trigo;espinaca;tomate seco;aceite de oliva;ajo", "low", 14, 530, 16),
+    ("pasta-garbanzos", "Pasta con salsa de garbanzos", "Pasta de trigo, garbanzos, tomate y hierbas.", "pastas", 39, "vegan;vegetarian;dairy_free", "gluten", "pasta de trigo;garbanzos;tomate;albahaca;cebolla", "low", 15, 550, 19),
+    ("wrap-pollo", "Wrap de pollo", "Tortilla de trigo, pollo, lechuga, tomate y palta.", "wraps", 39, "dairy_free;high_protein", "gluten", "tortilla de trigo;pollo;lechuga;tomate;palta", "low", 11, 470, 28),
+    ("wrap-atun", "Wrap de atun", "Tortilla de trigo, atun, lechuga, tomate y huevo.", "wraps", 38, "dairy_free;high_protein", "gluten;fish;egg", "tortilla de trigo;atun;lechuga;tomate;huevo", "low", 11, 450, 27),
+    ("wrap-falafel", "Wrap de falafel", "Tortilla de trigo, falafel, hummus, tomate y tahini.", "wraps", 36, "vegan;vegetarian;dairy_free", "gluten;sesame", "tortilla de trigo;falafel;hummus;tomate;tahini", "low", 12, 490, 17),
+    ("burrito-frijol", "Burrito de frijol", "Tortilla de trigo, frijoles, arroz, palta y pico de gallo.", "wraps", 35, "vegan;vegetarian;dairy_free", "gluten", "tortilla de trigo;frijoles;arroz;palta;tomate", "medium", 13, 520, 18),
+    ("lasagna-vegetal", "Lasagna vegetal", "Capas de pasta, verduras, tomate y queso mozzarella.", "pastas", 48, "vegetarian", "gluten;milk;egg", "pasta de trigo;zapallo;tomate;mozzarella;huevo", "low", 22, 650, 24),
+    ("noodles-tofu", "Noodles con tofu", "Noodles de trigo, tofu, vegetales y salsa de soya.", "pastas", 44, "vegan;vegetarian;dairy_free", "gluten;soy", "noodles;tofu;brocoli;zanahoria;salsa de soya", "medium", 14, 530, 23),
+    ("sopa-pollo", "Sopa de pollo y verduras", "Caldo de pollo con arroz, zanahoria, papa y hierbas.", "sopas", 31, "gluten_free;dairy_free;high_protein", "none", "pollo;arroz;zanahoria;papa;apio", "low", 12, 340, 25),
+    ("sopa-verduras", "Sopa de verduras", "Caldo de verduras con zapallo, papa, zanahoria y choclo.", "sopas", 25, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "zapallo;papa;zanahoria;choclo;apio", "low", 10, 240, 7),
+    ("sopa-quinoa", "Sopa de quinoa", "Quinoa, verduras, papa y hierbas en caldo ligero.", "sopas", 29, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "quinoa;papa;zanahoria;apio;tomate", "low", 11, 320, 14),
+    ("sopa-tomate", "Sopa de tomate", "Tomate asado, cebolla, zanahoria y albahaca.", "sopas", 27, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "tomate;cebolla;zanahoria;albahaca;ajo", "low", 9, 210, 6),
+    ("crema-calabaza", "Crema de calabaza", "Calabaza, papa, crema y semillas tostadas.", "sopas", 30, "vegetarian;gluten_free;low_calorie", "milk", "calabaza;papa;crema;semillas;nuez moscada", "low", 12, 280, 8),
+    ("chili-frijol", "Chili de frijoles", "Frijoles, tomate, maiz y especias con arroz.", "vegetarianos", 33, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "frijoles;tomate;maiz;arroz;aji", "high", 18, 480, 20),
+    ("locro-vegetal", "Locro vegetal", "Zapallo, papa, choclo y queso fresco en caldo casero.", "vegetarianos", 32, "vegetarian;gluten_free", "milk", "zapallo;papa;choclo;queso;cebolla", "low", 16, 410, 12),
+    ("guiso-lentejas", "Guiso de lentejas", "Lentejas, arroz, zanahoria, tomate y especias suaves.", "vegetarianos", 35, "vegan;vegetarian;gluten_free;dairy_free;high_protein", "none", "lentejas;arroz;zanahoria;tomate;cebolla", "medium", 17, 500, 23),
+    ("flan-coco", "Flan de coco", "Flan de coco con caramelo ligero.", "postres", 23, "vegetarian;gluten_free", "egg", "huevo;leche de coco;azucar;vainilla", "low", 6, 260, 7),
+    ("fruta-yogur", "Copa de fruta y yogur", "Frutas frescas, yogur natural y granola.", "postres", 26, "vegetarian;low_calorie", "milk;gluten", "frutilla;platano;yogur;granola;mango", "low", 5, 240, 8),
+    ("mousse-chocolate", "Mousse de chocolate", "Chocolate, crema y cacao con frutos rojos.", "postres", 28, "vegetarian;gluten_free", "milk;egg", "chocolate;crema;cacao;huevo;frambuesa", "low", 6, 330, 6),
+    ("manzana-canela", "Manzana asada con canela", "Manzana horneada con canela, miel y avena.", "postres", 21, "vegetarian;low_calorie", "gluten", "manzana;canela;miel;avena", "low", 8, 190, 4),
+    ("helado-frutilla", "Helado de frutilla", "Helado cremoso de frutilla con fruta fresca.", "postres", 22, "vegetarian;gluten_free", "milk", "leche;frutilla;azucar;crema", "low", 4, 250, 5),
+    ("galleta-avena", "Galleta de avena y chocolate", "Galleta de avena, chocolate y nuez.", "postres", 18, "vegetarian", "gluten;milk;nuts", "avena;harina;chocolate;nuez;mantequilla", "low", 5, 280, 5),
+    ("smoothie-mango", "Smoothie de mango", "Mango, platano, agua y jengibre.", "bebidas", 20, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "mango;platano;agua;jengibre", "low", 4, 160, 2),
+    ("smoothie-proteico", "Smoothie proteico", "Platano, avena, leche y proteina vegetal.", "bebidas", 28, "vegetarian;high_protein", "milk;gluten", "platano;avena;leche;proteina vegetal", "low", 5, 310, 22),
+    ("te-jengibre", "Te de jengibre y limon", "Infusion caliente de jengibre, limon y miel opcional.", "bebidas", 14, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "jengibre;limon;agua;miel", "low", 3, 45, 0),
+    ("cafe-avena", "Cafe con leche de avena", "Cafe espresso con bebida de avena y canela.", "bebidas", 17, "vegan;vegetarian;dairy_free", "gluten", "cafe;avena;canela", "low", 3, 90, 2),
+    ("camote-horno", "Camote al horno", "Camote horneado con romero y aceite de oliva.", "acompanamientos", 21, "vegan;vegetarian;gluten_free;dairy_free;low_calorie", "none", "camote;romero;aceite de oliva", "low", 12, 230, 4),
+    ("arroz-verduras", "Arroz con verduras", "Arroz blanco con zanahoria, arvejas, choclo y hierbas.", "acompanamientos", 19, "vegan;vegetarian;gluten_free;dairy_free", "none", "arroz;zanahoria;arvejas;choclo;cebolla", "low", 10, 260, 6),
 ]
 
 
+def build_menu() -> list[dict[str, object]]:
+    rng = random.Random(SEED)
+    menu = list(MENU)
+    for index, spec in enumerate(EXTRA_SPECS, start=1):
+        (
+            item_id,
+            name,
+            description,
+            category,
+            price,
+            diet_tags,
+            allergens,
+            ingredients,
+            spice_level,
+            prep_minutes,
+            calories,
+            protein_g,
+        ) = spec
+        menu.append(
+            {
+                "id": item_id,
+                "name": name,
+                "description": description,
+                "category": category,
+                "price": price,
+                "diet_tags": diet_tags,
+                "allergens": allergens,
+                "ingredients": ingredients,
+                "spice_level": spice_level,
+                "available": rng.random() > 0.08,
+                "prep_minutes": prep_minutes,
+                "calories": calories,
+                "protein_g": protein_g,
+                "popularity": round(0.24 + rng.random() * 0.58, 2),
+            }
+        )
+    return menu
+
+
+QUERY_GROUPS = [
+    {
+        "id": "vegetarian_dairy_free",
+        "split": "tuning",
+        "queries": [
+            "vegetariano sin lactosa poco picante menos de Bs 50",
+            "quiero comida vegetariana, sin lácteos y suave",
+            "algo vegetariano que no tenga leche y sea barato",
+            "busco una opción veggie sin queso ni picante",
+            "plato vegetariano económico y de sabor suave",
+        ],
+        "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal", "bowl-garbanzos", "bowl-vegetales", "bowl-lentejas", "ensalada-quinoa", "ensalada-tropical", "sopa-verduras", "sopa-quinoa", "sopa-tomate"],
+    },
+    {
+        "id": "gluten_free_chicken",
+        "split": "tuning",
+        "queries": [
+            "sin gluten con pollo no picante menor a Bs 50",
+            "quiero pollo suave y sin trigo por menos de 50",
+            "un plato de pollo apto para celiacos",
+            "pollo con arroz, sin gluten y poco picante",
+            "algo con pollo que no tenga trigo y sea económico",
+        ],
+        "relevant_ids": ["pollo-quinoa", "arroz-pollo", "tacos-pollo", "pollo-hierbas", "pollo-citricos", "sopa-pollo", "ensalada-pollo"],
+    },
+    {
+        "id": "vegan_light_peanut_free",
+        "split": "tuning",
+        "queries": [
+            "vegano sin maní y con pocas calorías",
+            "quiero algo vegan, liviano y sin cacahuate",
+            "comida vegetal baja en calorías sin frutos secos",
+            "una opción vegana ligera sin maní",
+            "algo vegano saludable y sin nueces",
+        ],
+        "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde", "bowl-vegetales", "bowl-lentejas", "sopa-verduras", "sopa-tomate", "guiso-lentejas", "garbanzos-guiso"],
+    },
+    {
+        "id": "fish_lunch",
+        "split": "tuning",
+        "queries": [
+            "pescado sin lactosa para el almuerzo",
+            "quiero un pescado ligero sin leche",
+            "opción de pescado con pocas calorías",
+            "un plato de pescado saludable para mediodía",
+            "filete de pescado sin lácteos",
+        ],
+        "relevant_ids": ["pescado-andino", "salmon-limon", "pescado-hierbas", "merluza-verde"],
+    },
+    {
+        "id": "meat_protein",
+        "split": "validation",
+        "queries": [
+            "plato con carne alto en proteína",
+            "quiero carne y muchas proteínas",
+            "una comida proteica con res",
+            "busco carne para una dieta alta en proteína",
+            "opción fuerte de carne con buen aporte proteico",
+        ],
+        "relevant_ids": ["lomo-salteado", "carne-champinones", "carne-pimienta"],
+    },
+    {
+        "id": "dairy_free_dessert",
+        "split": "validation",
+        "queries": [
+            "postre sin lactosa",
+            "quiero un dulce sin leche",
+            "algo dulce que no tenga lácteos",
+            "postre vegano y ligero",
+            "un postre apto para intolerancia a la lactosa",
+        ],
+        "relevant_ids": ["pudding-chia", "manzana-canela"],
+    },
+    {
+        "id": "light_cheap_lunch",
+        "split": "validation",
+        "queries": [
+            "algo liviano y barato para el almuerzo",
+            "quiero un almuerzo económico y ligero",
+            "comida saludable con poco presupuesto",
+            "qué plato es liviano y no cuesta mucho",
+            "una opción sencilla, económica y baja en calorías",
+        ],
+        "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde", "sopa-verduras", "sopa-tomate", "ensalada-quinoa", "ensalada-tropical"],
+    },
+    {
+        "id": "mild_chicken",
+        "split": "validation",
+        "queries": [
+            "pollo poco picante",
+            "quiero pollo sin picante",
+            "un plato de pollo suave",
+            "qué pollo tiene sabor no picante",
+            "opción de pollo con ají muy suave",
+        ],
+        "relevant_ids": ["pollo-quinoa", "arroz-pollo", "pollo-teriyaki", "pollo-hierbas", "pollo-citricos", "sopa-pollo", "ensalada-pollo"],
+    },
+    {
+        "id": "egg_dairy_free",
+        "split": "test",
+        "queries": [
+            "opción sin huevo ni lácteos",
+            "quiero algo que no tenga huevo ni leche",
+            "comida libre de huevo y queso",
+            "plato sin huevo, crema ni mantequilla",
+            "qué puedo comer si evito huevo y lácteos",
+        ],
+        "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal", "bowl-garbanzos", "bowl-vegetales", "bowl-lentejas", "ensalada-quinoa", "ensalada-tropical", "sopa-verduras", "sopa-quinoa", "sopa-tomate"],
+    },
+    {
+        "id": "vegetarian_budget",
+        "split": "test",
+        "queries": [
+            "algo vegetariano con poco presupuesto",
+            "comida sin carne que sea barata",
+            "una opción vegetariana económica",
+            "qué plato vegetariano cuesta menos",
+            "quiero comer vegetariano sin gastar mucho",
+        ],
+        "relevant_ids": ["sopa-lentejas", "jugo-verde", "limonada-natural", "wrap-vegetal", "bowl-vegetales", "bowl-lentejas", "ensalada-mediterranea", "sopa-verduras", "sopa-tomate", "guiso-lentejas", "garbanzos-guiso"],
+    },
+    {
+        "id": "gluten_soy_free",
+        "split": "test",
+        "queries": [
+            "sin gluten y sin soya",
+            "quiero evitar trigo y salsa de soya",
+            "opción libre de gluten y soja",
+            "comida sin harina ni soya",
+            "qué puedo pedir si no consumo gluten ni soja",
+        ],
+        "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pescado-andino", "arroz-pollo", "tacos-pollo", "pollo-quinoa", "bowl-vegetales", "sopa-lentejas", "sopa-quinoa"],
+    },
+    {
+        "id": "vegan_protein",
+        "split": "test",
+        "queries": [
+            "quiero algo vegano con proteína",
+            "comida vegetal rica en proteína",
+            "una opción vegana proteica",
+            "qué plato vegano me aporta más proteína",
+            "busco comida sin carne pero con buena proteína",
+        ],
+        "relevant_ids": ["bowl-quinoa", "curry-lentejas", "sopa-lentejas", "bowl-garbanzos", "bowl-lentejas", "guiso-lentejas", "garbanzos-guiso", "tofu-curry"],
+    },
+    {
+        "id": "peanut_allergy",
+        "split": "test",
+        "queries": [
+            "soy alérgico al maní y quiero algo vegano",
+            "tengo alergia al cacahuate, recomiéndame algo vegetal",
+            "evito los frutos de maní y prefiero comida vegana",
+            "no puedo comer maní, busco un plato sin carne",
+            "soy alérgica a los cacahuates, qué opción vegana hay",
+        ],
+        "relevant_ids": ["bowl-quinoa", "sopa-lentejas", "ensalada-mediterranea", "pasta-vegetal", "bowl-garbanzos", "bowl-vegetales", "bowl-lentejas", "wrap-vegetal", "sopa-verduras", "sopa-quinoa", "sopa-tomate"],
+    },
+    {
+        "id": "category_bowls",
+        "split": "test",
+        "queries": [
+            "quiero un bowl saludable",
+            "recomiéndame un bowl con verduras",
+            "busco una comida tipo bowl",
+            "qué bowls tienen disponibles",
+            "un bowl para almorzar, por favor",
+        ],
+        "relevant_ids": ["bowl-quinoa", "pollo-quinoa", "bowl-tofu", "bowl-pavo", "bowl-garbanzos", "bowl-cerdo", "bowl-vegetales", "bowl-lentejas", "bowl-salmon"],
+    },
+    {
+        "id": "category_pasta",
+        "split": "test",
+        "queries": [
+            "quiero pasta",
+            "recomiéndame un plato de pasta",
+            "busco fideos con verduras",
+            "qué opciones de pastas tienen",
+            "una pasta para el almuerzo",
+        ],
+        "relevant_ids": ["pasta-vegetal", "pasta-pollo", "pasta-pesto", "pasta-champinones", "pasta-espinaca", "pasta-garbanzos", "lasagna-vegetal", "noodles-tofu"],
+    },
+    {
+        "id": "low_calorie_drink",
+        "split": "test",
+        "queries": [
+            "bebida baja en calorías",
+            "quiero algo para tomar que sea liviano",
+            "un jugo saludable sin leche",
+            "qué bebida tiene pocas calorías",
+            "algo fresco, natural y ligero",
+        ],
+        "relevant_ids": ["jugo-verde", "limonada-natural", "smoothie-mango", "te-jengibre"],
+    },
+    {
+        "id": "no_fish_gluten_free",
+        "split": "test",
+        "queries": [
+            "sin pescado y sin gluten",
+            "no puedo comer pescado, quiero algo apto para celíacos",
+            "evito pescado y trigo",
+            "una opción sin pescado ni gluten",
+            "qué plato no contiene pescado ni harina",
+        ],
+        "relevant_ids": ["bowl-quinoa", "pollo-quinoa", "arroz-pollo", "tacos-pollo", "bowl-pavo", "ensalada-pollo", "sopa-pollo"],
+    },
+    {
+        "id": "no_safe_match",
+        "split": "test",
+        "queries": [
+            "alergia a pescado y quiero salmón",
+            "soy alérgico al pescado pero quiero merluza",
+            "tengo alergia al marisco y deseo camarones",
+            "no puedo comer pescado, recomiéndame salmón",
+            "alergia a camarones y quiero camarones al ajo",
+        ],
+        "relevant_ids": [],
+        "scored": False,
+    },
+    {
+        "id": "hard_spicy",
+        "split": "test",
+        "queries": [
+            "quiero algo muy picante con pollo",
+            "recomiéndame comida con bastante ají",
+            "busco un plato picante y proteico",
+            "algo con sabor fuerte y pollo",
+            "quiero una opción de pollo bien picante",
+        ],
+        "relevant_ids": ["pollo-picante", "tacos-pollo", "pollo-aji", "chili-frijol", "carne-pimienta"],
+    },
+    {
+        "id": "price_range",
+        "split": "test",
+        "queries": [
+            "plato entre Bs 35 y Bs 45",
+            "quiero algo que cueste desde 35 hasta 45 bolivianos",
+            "comida con presupuesto mínimo de Bs 35 y máximo de 45",
+            "qué puedo pedir por 40 bolivianos aproximadamente",
+            "una opción de precio medio, no más de 45",
+        ],
+        "relevant_ids": ["pasta-vegetal", "wrap-vegetal", "bowl-quinoa", "bowl-garbanzos", "bowl-vegetales", "bowl-lentejas", "ensalada-quinoa", "sopa-lentejas"],
+    },
+]
+
+
+def build_queries() -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    counter = 1
+    for group in QUERY_GROUPS:
+        for query in group["queries"]:
+            rows.append(
+                {
+                    "id": f"q{counter:03d}",
+                    "group": group["id"],
+                    "split": group["split"],
+                    "query": query,
+                    "relevant_ids": group["relevant_ids"],
+                    "scored": group.get("scored", True),
+                }
+            )
+            counter += 1
+    return rows
+
+
 def write_dataset() -> None:
-    random.seed(SEED)
+    menu = build_menu()
+    queries = build_queries()
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     menu_path = DATA_DIR / "menu.csv"
     with menu_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(MENU[0].keys()))
+        writer = csv.DictWriter(handle, fieldnames=list(menu[0].keys()), lineterminator="\n")
         writer.writeheader()
-        writer.writerows(MENU)
+        writer.writerows(menu)
     with (DATA_DIR / "evaluation_queries.jsonl").open("w", encoding="utf-8") as handle:
-        for query in EVALUATION_QUERIES:
+        for query in queries:
             handle.write(json.dumps(query, ensure_ascii=False) + "\n")
-    print(f"Generated {len(MENU)} menu items and {len(EVALUATION_QUERIES)} evaluation queries with seed {SEED}.")
+    for split in ("tuning", "validation", "test"):
+        with (DATA_DIR / f"{split}_queries.jsonl").open("w", encoding="utf-8") as handle:
+            for query in queries:
+                if query["split"] == split:
+                    handle.write(json.dumps(query, ensure_ascii=False) + "\n")
+    print(f"Generated {len(menu)} menu items and {len(queries)} queries with seed {SEED}.")
 
 
 if __name__ == "__main__":
     write_dataset()
-

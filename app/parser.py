@@ -47,7 +47,7 @@ ALLERGEN_PATTERNS: dict[str, tuple[str, ...]] = {
     "peanuts": ("mani", "cacahuate", "cacahuates"),
     "nuts": ("frutos secos", "nueces", "almendras"),
     "milk": ("lactosa", "lacteos", "leche", "queso"),
-    "gluten": ("gluten", "trigo"),
+    "gluten": ("gluten", "trigo", "harina"),
     "egg": ("huevo", "huevos"),
     "soy": ("soya", "soja"),
     "fish": ("pescado", "pescados"),
@@ -89,6 +89,10 @@ def parse_query(query: str) -> QueryIntent:
                     f"alergica al {pattern}",
                     f"no puedo comer {pattern}",
                     f"no consumo {pattern}",
+                    f"no contiene {pattern}",
+                    f"no lleva {pattern}",
+                    f"no tiene {pattern}",
+                    f"intolerancia a {pattern}",
                     f"evitar {pattern}",
                     f"evito {pattern}",
                 ]
@@ -103,7 +107,12 @@ def parse_query(query: str) -> QueryIntent:
                 f"a los {pattern}",
             )
         )
-        if any(marker in normalized for marker in exclusion_markers) or allergy_reference:
+        negative_reference = any(
+            f"{prefix} {pattern}" in normalized
+            for prefix in ("ni", "no")
+            for pattern in patterns
+        )
+        if any(marker in normalized for marker in exclusion_markers) or allergy_reference or negative_reference:
             intent.excluded_allergens.append(canonical)
 
     protein_allergen = {
@@ -160,6 +169,16 @@ def parse_query(query: str) -> QueryIntent:
         normalized,
         r"(?:desde|mayor a|minimo|min)\s*(?:bs\.?|bolivianos)?\s*(\d+(?:[\.,]\d+)?)",
     )
+    price_range = re.search(
+        r"entre\s*(?:bs\.?|bolivianos)?\s*(\d+(?:[\.,]\d+)?)\s*y\s*"
+        r"(?:bs\.?|bolivianos)?\s*(\d+(?:[\.,]\d+)?)",
+        normalized,
+    )
+    if price_range:
+        first = float(price_range.group(1).replace(",", "."))
+        second = float(price_range.group(2).replace(",", "."))
+        intent.min_price = min(first, second)
+        intent.max_price = max(first, second)
     category_patterns = {
         "postres": ("postre", "dulce"),
         "bebidas": ("bebida", "jugo", "limonada"),
