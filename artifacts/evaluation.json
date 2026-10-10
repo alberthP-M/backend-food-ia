@@ -1,0 +1,183 @@
+{
+  "metric": "Precision@3",
+  "query_count": 12,
+  "model_backend": "fastembed",
+  "model_precision_at_3": 0.4444444444444444,
+  "baseline_precision_at_3": 0.5555555555555555,
+  "queries": [
+    {
+      "id": "q01",
+      "query": "vegetariano sin lactosa poco picante menos de Bs 50",
+      "model_ids": [
+        "sopa-lentejas",
+        "pasta-vegetal",
+        "burger-vegana"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 1.0
+    },
+    {
+      "id": "q02",
+      "query": "sin gluten con pollo no picante menor a Bs 50",
+      "model_ids": [
+        "arroz-pollo",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.6666666666666666
+    },
+    {
+      "id": "q03",
+      "query": "vegano sin mani y con pocas calorias",
+      "model_ids": [
+        "sopa-lentejas",
+        "ensalada-mediterranea"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "sopa-lentejas"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.6666666666666666
+    },
+    {
+      "id": "q04",
+      "query": "pescado sin lactosa para el almuerzo",
+      "model_ids": [
+        "pescado-andino"
+      ],
+      "baseline_ids": [
+        "pescado-andino"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333
+    },
+    {
+      "id": "q05",
+      "query": "plato con carne alto en proteina",
+      "model_ids": [
+        "lomo-salteado"
+      ],
+      "baseline_ids": [
+        "lomo-salteado"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333
+    },
+    {
+      "id": "q06",
+      "query": "postre sin lactosa",
+      "model_ids": [
+        "pudding-chia"
+      ],
+      "baseline_ids": [
+        "pudding-chia"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333
+    },
+    {
+      "id": "q07",
+      "query": "algo liviano y barato para el almuerzo",
+      "model_ids": [
+        "ensalada-mediterranea",
+        "sopa-lentejas"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "sopa-lentejas"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.6666666666666666
+    },
+    {
+      "id": "q08",
+      "query": "pollo poco picante",
+      "model_ids": [
+        "pasta-pollo",
+        "arroz-pollo",
+        "pollo-quinoa"
+      ],
+      "baseline_ids": [
+        "pollo-quinoa",
+        "arroz-pollo",
+        "pollo-teriyaki"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 1.0
+    },
+    {
+      "id": "q09",
+      "query": "opcion sin huevo ni lacteos",
+      "model_ids": [
+        "pollo-quinoa",
+        "bowl-quinoa",
+        "pollo-picante"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "ensalada-mediterranea"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.6666666666666666
+    },
+    {
+      "id": "q10",
+      "query": "algo vegetariano con poco presupuesto",
+      "model_ids": [
+        "sopa-lentejas",
+        "ensalada-mediterranea",
+        "wrap-vegetal"
+      ],
+      "baseline_ids": [
+        "ensalada-mediterranea",
+        "wrap-vegetal",
+        "sopa-lentejas"
+      ],
+      "model_precision_at_3": 0.3333333333333333,
+      "baseline_precision_at_3": 0.3333333333333333
+    },
+    {
+      "id": "q11",
+      "query": "sin gluten y sin soya",
+      "model_ids": [
+        "arroz-pollo",
+        "sopa-lentejas",
+        "tacos-pollo"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "pollo-quinoa",
+        "arroz-pollo"
+      ],
+      "model_precision_at_3": 0.0,
+      "baseline_precision_at_3": 0.3333333333333333
+    },
+    {
+      "id": "q12",
+      "query": "quiero algo vegano con proteina",
+      "model_ids": [
+        "curry-lentejas",
+        "sopa-lentejas",
+        "pasta-vegetal"
+      ],
+      "baseline_ids": [
+        "bowl-quinoa",
+        "ensalada-mediterranea",
+        "pasta-vegetal"
+      ],
+      "model_precision_at_3": 0.6666666666666666,
+      "baseline_precision_at_3": 0.3333333333333333
+    }
+  ]
+}

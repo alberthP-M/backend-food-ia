@@ -1,0 +1,24 @@
+id,name,description,category,price,diet_tags,allergens,ingredients,spice_level,available,prep_minutes,calories,protein_g,popularity
+bowl-quinoa,Bowl de quinoa andina,"Quinoa, garbanzos, verduras frescas, palta y limon.",bowls,42,vegan;vegetarian;gluten_free;dairy_free;high_protein,none,quinoa;garbanzos;pepino;tomate;palta;limon,low,True,12,460,18,0.92
+ensalada-mediterranea,Ensalada mediterranea,"Hojas verdes, garbanzos, tomate, pepino, aceitunas y limon.",ensaladas,32,vegan;vegetarian;gluten_free;dairy_free;low_calorie,none,lechuga;garbanzos;tomate;pepino;aceitunas;limon,low,True,8,280,10,0.88
+pasta-vegetal,Pasta con vegetales,Pasta de trigo con vegetales salteados y salsa de tomate.,pastas,38,vegan;vegetarian;dairy_free,gluten,pasta de trigo;tomate;zapallo italiano;pimiento;cebolla,low,True,15,520,14,0.84
+curry-lentejas,Curry de lentejas,"Lentejas, arroz, leche de coco y verduras con especias suaves.",vegetarianos,36,vegan;vegetarian;gluten_free;dairy_free;high_protein,none,lentejas;arroz;leche de coco;zanahoria;tomate,medium,True,18,490,22,0.71
+burger-vegana,Hamburguesa de lentejas,"Hamburguesa vegetal con pan, lechuga, tomate y salsa de la casa.",hamburguesas,44,vegan;vegetarian;dairy_free,gluten,lentejas;pan de trigo;lechuga;tomate;cebolla,low,True,14,610,20,0.76
+pollo-quinoa,Bowl de pollo y quinoa,"Pollo a la plancha, quinoa, verduras y aderezo de limon.",bowls,48,gluten_free;dairy_free;high_protein,none,pollo;quinoa;brocoli;zanahoria;limon,low,True,16,510,36,0.91
+pollo-teriyaki,Pollo teriyaki,"Pollo salteado con arroz, verduras y salsa teriyaki.",platos fuertes,46,dairy_free;high_protein,soy;gluten,pollo;arroz;salsa de soya;brocoli;zanahoria,low,True,17,570,34,0.86
+arroz-pollo,Arroz salteado con pollo,"Arroz, pollo, verduras frescas y hierbas de la casa.",platos fuertes,42,gluten_free;dairy_free;high_protein,egg,pollo;arroz;zanahoria;arvejas;huevo,low,True,14,540,31,0.89
+tacos-pollo,Tacos de pollo,"Tortillas de maiz, pollo, pico de gallo y palta.",tacos,40,gluten_free;dairy_free;high_protein,none,pollo;tortilla de maiz;tomate;cebolla;palta,medium,True,13,470,29,0.82
+pollo-picante,Pollo picante de la casa,Pollo grillado con arroz y salsa picante de ajies.,platos fuertes,45,gluten_free;dairy_free;high_protein,none,pollo;arroz;aji;tomate;cebolla,high,True,16,530,35,0.64
+lomo-salteado,Lomo salteado,"Carne de res, arroz, papas y verduras salteadas.",platos fuertes,58,dairy_free;high_protein,soy;gluten,carne;arroz;papa;tomate;salsa de soya;cebolla,medium,True,20,720,42,0.83
+pescado-andino,Pescado andino a la plancha,"Filete de pescado, quinoa y verduras al vapor.",pescados,56,gluten_free;dairy_free;high_protein;low_calorie,fish,pescado;quinoa;brocoli;zanahoria;limon,low,True,18,430,38,0.67
+salmon-limon,Salmon al limon,Salmon al horno con ensalada fresca y limon.,pescados,68,gluten_free;dairy_free;high_protein;low_calorie,fish,salmon;lechuga;pepino;limon;palta,low,True,22,450,40,0.59
+pasta-pollo,Pasta cremosa de pollo,"Pasta de trigo, pollo, crema y parmesano.",pastas,50,high_protein,gluten;milk;egg,pasta de trigo;pollo;crema;parmesano;huevo,low,True,18,690,34,0.78
+pizza-margarita,Pizza margarita,"Masa de trigo, tomate, albahaca y queso mozzarella.",pizzas,46,vegetarian,gluten;milk,masa de trigo;tomate;albahaca;mozzarella,low,True,19,640,26,0.87
+wrap-vegetal,Wrap vegetal,"Tortilla de trigo, hummus, verduras y palta.",wraps,35,vegan;vegetarian;dairy_free,gluten;sesame,tortilla de trigo;garbanzos;sesamo;lechuga;tomate;palta,low,True,10,410,15,0.73
+sopa-lentejas,Sopa de lentejas,"Lentejas, zanahoria, papa y hierbas frescas.",sopas,28,vegan;vegetarian;gluten_free;dairy_free;low_calorie;high_protein,none,lentejas;zanahoria;papa;tomate;apio,low,True,9,290,17,0.69
+bowl-tofu,Bowl de tofu y verduras,"Tofu, arroz, verduras y salsa de soya reducida.",bowls,43,vegan;vegetarian;gluten_free;dairy_free;high_protein,soy,tofu;arroz;brocoli;zanahoria;salsa de soya,low,True,15,480,25,0.63
+pudding-chia,Pudding de chia y frutas,"Chia, leche de coco, frutas de temporada y canela.",postres,24,vegan;vegetarian;gluten_free;dairy_free;low_calorie,none,chia;leche de coco;frutilla;platano;canela,low,True,5,220,6,0.62
+jugo-verde,Jugo verde,"Manzana, pepino, espinaca, limon y jengibre.",bebidas,18,vegan;vegetarian;gluten_free;dairy_free;low_calorie,none,manzana;pepino;espinaca;limon;jengibre,low,True,4,120,2,0.81
+limonada-natural,Limonada natural,"Limon, agua y endulzante opcional.",bebidas,15,vegan;vegetarian;gluten_free;dairy_free;low_calorie,none,limon;agua;endulzante,low,True,3,70,0,0.9
+papas-horno,Papas al horno,Papas horneadas con hierbas y salsa de tomate.,acompanamientos,20,vegan;vegetarian;gluten_free;dairy_free,none,papa;romero;tomate;aceite de oliva,low,True,12,250,5,0.86
+brownie-nuez,Brownie con nuez,Brownie de chocolate con nuez y salsa de cacao.,postres,22,vegetarian,gluten;milk;egg;nuts,harina de trigo;chocolate;leche;huevo;nuez,low,True,5,390,7,0.68

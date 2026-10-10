@@ -1,0 +1,30 @@
+{
+  "backend": "fastembed",
+  "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "menu_ids": [
+    "bowl-quinoa",
+    "ensalada-mediterranea",
+    "pasta-vegetal",
+    "curry-lentejas",
+    "burger-vegana",
+    "pollo-quinoa",
+    "pollo-teriyaki",
+    "arroz-pollo",
+    "tacos-pollo",
+    "pollo-picante",
+    "lomo-salteado",
+    "pescado-andino",
+    "salmon-limon",
+    "pasta-pollo",
+    "pizza-margarita",
+    "wrap-vegetal",
+    "sopa-lentejas",
+    "bowl-tofu",
+    "pudding-chia",
+    "jugo-verde",
+    "limonada-natural",
+    "papas-horno",
+    "brownie-nuez"
+  ],
+  "embedding_dimension": 384
+}

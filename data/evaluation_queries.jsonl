@@ -1,0 +1,12 @@
+{"id": "q01", "query": "vegetariano sin lactosa poco picante menos de Bs 50", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal"]}
+{"id": "q02", "query": "sin gluten con pollo no picante menor a Bs 50", "relevant_ids": ["pollo-quinoa", "arroz-pollo", "tacos-pollo"]}
+{"id": "q03", "query": "vegano sin mani y con pocas calorias", "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde"]}
+{"id": "q04", "query": "pescado sin lactosa para el almuerzo", "relevant_ids": ["pescado-andino", "salmon-limon"]}
+{"id": "q05", "query": "plato con carne alto en proteina", "relevant_ids": ["lomo-salteado"]}
+{"id": "q06", "query": "postre sin lactosa", "relevant_ids": ["pudding-chia"]}
+{"id": "q07", "query": "algo liviano y barato para el almuerzo", "relevant_ids": ["ensalada-mediterranea", "sopa-lentejas", "jugo-verde"]}
+{"id": "q08", "query": "pollo poco picante", "relevant_ids": ["pollo-quinoa", "arroz-pollo", "pollo-teriyaki"]}
+{"id": "q09", "query": "opcion sin huevo ni lacteos", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pasta-vegetal"]}
+{"id": "q10", "query": "algo vegetariano con poco presupuesto", "relevant_ids": ["sopa-lentejas", "jugo-verde", "limonada-natural"]}
+{"id": "q11", "query": "sin gluten y sin soya", "relevant_ids": ["bowl-quinoa", "ensalada-mediterranea", "pescado-andino"]}
+{"id": "q12", "query": "quiero algo vegano con proteina", "relevant_ids": ["bowl-quinoa", "curry-lentejas", "sopa-lentejas"]}
